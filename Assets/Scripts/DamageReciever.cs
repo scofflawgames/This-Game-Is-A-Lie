@@ -19,7 +19,7 @@ public class DamageReciever : MonoBehaviour
             PlayerManager playerManager = FindObjectOfType<PlayerManager>();
             playerManager.playerHealth -= damageAmount;
             playerManager.RefreshUI();
-            print("Player has " + playerManager.playerHealth + " health now.");
+            //print("Player has " + playerManager.playerHealth + " health now.");
         }
     }
 }

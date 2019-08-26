@@ -26,7 +26,7 @@ public class DamageSender : MonoBehaviour
 
         if (damageReciever != null)
         {
-            print("Damage dealt in the amount of " + damageAmount);
+            //print("Damage dealt in the amount of " + damageAmount);
             damageReciever.DamageRecieved(damageAmount);
         }
     }

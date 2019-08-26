@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
     [Header("Public References")]
     public GameObject pauseMenu;
     public GameObject matrixFalls;
+    public GameObject hud;
     public static bool isPaused = false;
 
     private void Awake()
     {
         matrixFalls.SetActive(true);
+        hud.SetActive(true);
     }
 
     private void Update()
