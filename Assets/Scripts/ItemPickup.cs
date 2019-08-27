@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
-{
-    
+{   
     public enum ItemType {HealthIncrease, DataIncrease, SanityIncrease}
 
     [Header("Public References")]

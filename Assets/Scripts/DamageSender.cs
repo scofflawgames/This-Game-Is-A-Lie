@@ -9,17 +9,6 @@ public class DamageSender : MonoBehaviour
     [Header("Public Variables")]
     public float damageAmount;
 
-    private void Start()
-    {
-        
-    }
-
-
-    private void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         DamageReciever damageReciever = other.gameObject.GetComponent<DamageReciever>();
@@ -28,8 +17,16 @@ public class DamageSender : MonoBehaviour
         {
             //print("Damage dealt in the amount of " + damageAmount);
             damageReciever.DamageRecieved(damageAmount);
+            if (this.gameObject.CompareTag("Punch"))
+            {
+                AudioSource audioSource = GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                    //add code to randomize pitch later
+                }
+            }
         }
     }
-
 
 }

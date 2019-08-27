@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI playerDataText;
     public TextMeshProUGUI playerSanityText;
     public GameObject player;
-    public MeshRenderer playerMesh;
+    public GameObject playerMesh;
 
 
     //private shit
@@ -66,13 +66,12 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator HitFlashDelay(float time)
     {
-        playerMesh.enabled = false;
+        playerMesh.SetActive(false);
         yield return new WaitForSeconds(time);
-        playerMesh.enabled = true;
+        playerMesh.SetActive(true);
         yield return new WaitForSeconds(time);
-        playerMesh.enabled = false;
+        playerMesh.SetActive(false);
         yield return new WaitForSeconds(time);
-        playerMesh.enabled = true;
-        yield return new WaitForSeconds(time);
+        playerMesh.SetActive(true);
     }
 }

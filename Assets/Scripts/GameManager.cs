@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject matrixFalls;
     public GameObject hud;
+    public TextMeshProUGUI scoreText;
+
+    [Header("Public Variables")]
     public static bool isPaused = false;
+    public static int score;
 
     private void Awake()
     {
@@ -30,6 +35,11 @@ public class GameManager : MonoBehaviour
                 UnPauseGame();
             }
         }
+    }
+
+    public void ScoreUpdate()
+    {
+        scoreText.text = ("SCORE: " + score);
     }
 
     public void PauseGame()

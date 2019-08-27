@@ -7,11 +7,6 @@ public class DamageReciever : MonoBehaviour
     public enum VictimType {Player, Enemy}
     public VictimType victimType;
     
-    void Start()
-    {
-
-    }
-
     public void DamageRecieved(float damageAmount)
     {
         if (victimType == VictimType.Player)
@@ -20,6 +15,18 @@ public class DamageReciever : MonoBehaviour
             playerManager.playerHealth -= damageAmount;
             playerManager.RefreshUI();
             //print("Player has " + playerManager.playerHealth + " health now.");
+        }
+        else if (victimType == VictimType.Enemy)
+        {
+            EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
+            print("HIT ENEMY!!");
+            if (enemyManager != null)
+            {
+                enemyManager.takeDamage(damageAmount);
+                GameManager.score += 50;
+                GameManager gameManager = FindObjectOfType<GameManager>();
+                gameManager.ScoreUpdate();
+            }
         }
     }
 }
