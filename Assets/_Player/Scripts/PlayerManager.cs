@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI playerDataText;
     public TextMeshProUGUI playerSanityText;
     public GameObject player;
+    public MeshRenderer playerMesh;
+
 
     //private shit
     private GameManager gameManager;
@@ -50,6 +52,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
+            StartCoroutine(HitFlashDelay(0.15f));
             playerHealthText.text = ("HEALTH: " + playerHealth);
         }
 
@@ -59,5 +62,17 @@ public class PlayerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         gameManager.RestartGame();
+    }
+
+    IEnumerator HitFlashDelay(float time)
+    {
+        playerMesh.enabled = false;
+        yield return new WaitForSeconds(time);
+        playerMesh.enabled = true;
+        yield return new WaitForSeconds(time);
+        playerMesh.enabled = false;
+        yield return new WaitForSeconds(time);
+        playerMesh.enabled = true;
+        yield return new WaitForSeconds(time);
     }
 }
